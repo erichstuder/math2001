@@ -8,7 +8,11 @@
         "vscode": {
             "extensions": [
                 "leanprover.lean4"
-            ]
+            ],
+            "settings": {
+                "editor.minimap.enabled": false,
+                "editor.quickSuggestions": false
+            }
         }
     }
 }
