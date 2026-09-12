@@ -1,0 +1,14 @@
+{
+    "name": "devcontainer",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": ".."
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "leanprover.lean4"
+            ]
+        }
+    }
+}
