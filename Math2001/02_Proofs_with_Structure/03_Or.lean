@@ -15,15 +15,25 @@ example {x y : ℝ} (h : x = 1 ∨ y = -1) : x * y + x = y + 1 := by
     _ = -1 + 1 := by ring
     _ = y + 1 := by rw [hy]
 
+
+-- I read that lean internally only uses '<' and no '>'. Seems to be true and can be seen in this example.
 example {n : ℕ} : n ^ 2 ≠ 2 := by
   have hn := le_or_succ_le n 1
   obtain hn | hn := hn
+
   apply ne_of_lt
   calc
     n ^ 2 ≤ 1 ^ 2 := by rel [hn]
     _ < 2 := by numbers
-  sorry
 
+  apply ne_of_gt
+  calc
+    n ^ 2
+      >= 2 ^ 2 := by rel [hn]
+    _ > 2 := by numbers
+
+
+--
 example {x : ℝ} (hx : 2 * x + 1 = 5) : x = 1 ∨ x = 2 := by
   right
   calc
